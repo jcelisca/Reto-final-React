@@ -1,6 +1,6 @@
 import { useRef, useState, useContext } from "react";
 
-const TodoForm = ({ HOST_API, item, Store, todolist_id }) => {
+const FormPrueba = ({ HOST_API, item, Store, todolist_id }) => {
 
     const { dispatch } = useContext(Store);
     const item2 = item;
@@ -63,14 +63,14 @@ const TodoForm = ({ HOST_API, item, Store, todolist_id }) => {
     }
 
     return (
-        <form ref={formRef}>
+        <form ref={formRef} >
             <input type="text" name="name" defaultValue={ (JSON.stringify(item.relation) === JSON.stringify(todolist_id)) ? item.name : ""}
                 onChange={(event) => setState({ ...state, name: event.target.value })
                 } ></input>
             {(JSON.stringify(item.relation) === JSON.stringify(todolist_id)) && <button onClick={onEdit}>Actualizar</button>}
-            {!(JSON.stringify(item.relation) === JSON.stringify(todolist_id)) && <button onClick={onAdd}>Crear</button>}
+            {!(JSON.stringify(item.relation) === JSON.stringify(todolist_id)) && <button className="btn btn-success" onClick={onAdd}>Crear</button>}
         </form>
     );
 }
 
-export default TodoForm;
+export default FormPrueba;

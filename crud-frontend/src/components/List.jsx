@@ -1,6 +1,6 @@
-import React, { useContext, useEffect} from 'react';
-import TodoList from './TodoList';
-import TodoForm from './TodoForm';
+import React, { useContext, useEffect } from 'react';
+import ListaPrueba from './ListaPrueba';
+import FormPrueba from './FormPrueba';
 
 const List = ({ HOST_API, Store }) => {
 
@@ -8,7 +8,7 @@ const List = ({ HOST_API, Store }) => {
     const currentList = todo.listAll;
     const currentitem = todo.item;
 
-    //Actualiza la la lista de listas haciendo petición get a la API
+    //Actualiza la lista de listas haciendo petición Get a la API
     useEffect(() => {
         fetch(HOST_API + "/todolist")
             .then(response => response.json())
@@ -19,7 +19,7 @@ const List = ({ HOST_API, Store }) => {
 
     //Elimina una lista
     const onDelete = (id) => {
-        fetch(HOST_API + "/todolist/" + id, {
+        fetch(HOST_API + "/todolist/delete/" + id, {
             method: "DELETE"
         }).then(() => {
             dispatch({ type: "delete-listaTodo", id })
@@ -38,12 +38,12 @@ const List = ({ HOST_API, Store }) => {
                 currentList.map((list) => {
                     return <li key={list.id}>
                         <div><h2>{list.name}</h2>
-                            <button onClick={() => { onDelete(list.id) }}>Eliminar</button>
+                            <button className="btn btn-danger" onClick={() => { onDelete(list.id) }}>Eliminar</button>
                             <button onClick={() => onEdit(list)}>Editar</button>
                         </div>
                         <div>
-                            <div><TodoList HOST_API={HOST_API} item={currentitem} Store={Store} todolist_id={list}/></div>
-                            <div><TodoForm HOST_API={HOST_API} Store={Store} todolist_id={list} id_id={list.id} /></div>
+                            <div><FormPrueba HOST_API={HOST_API} item={currentitem} Store={Store} todolist_id={list}/></div>
+                            <div><ListaPrueba HOST_API={HOST_API} Store={Store} todolist_id={list} id_id={list.id} /></div>
                         </div>
                     </li>
                 })

@@ -57,13 +57,14 @@ const Form = ({HOST_API, Store }) => {
             });
     }
 
+
     return (
         <form ref={formRef}>
             <input type="text" name="name" defaultValue={listTodo.name}
                 onChange={(event) => setState({ ...state, name: event.target.value })
-                } ></input>
+                }></input>
             {listTodo.id && <button onClick={onEdit}>Actualizar</button>}
-            {!listTodo.id && <button onClick={onAdd}>Crear</button>}
+            {!listTodo.id && <button  className="btn btn-success" onClick={onAdd}>Nueva lista</button>}
         </form>
      );
 }

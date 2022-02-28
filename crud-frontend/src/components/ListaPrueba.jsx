@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
+import {TableContainer, Table, TableHead, TableRow, TableBody, TableCell} from '@material-ui/core'
 
-const TodoList = ({ HOST_API, Store, todolist_id, id_id }) => {
+const ListaPrueba = ({ HOST_API, Store, todolist_id, id_id }) => {
 
     const { dispatch } = useContext(Store);
 
@@ -68,7 +69,7 @@ const TodoList = ({ HOST_API, Store, todolist_id, id_id }) => {
                 <tr>
                     <td>ID</td>
                     <td>Tarea</td>
-                    <td>Â¿Completado?</td>
+                    <td>¿Completado?</td>
                 </tr>
             </thead>
             <tbody>
@@ -77,7 +78,7 @@ const TodoList = ({ HOST_API, Store, todolist_id, id_id }) => {
                         <td>{todo.id}</td>
                         <td>{todo.name}</td>
                         <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-                        <td><button onClick={() => onDelete(todo.id)} >Eliminar</button></td>
+                        <td><button className="btn btn-danger" onClick={() => onDelete(todo.id)} >Eliminar</button></td>
                         <td><button onClick={() => onEdit(todo)} >Editar</button></td>
                     </tr>
                 })}
@@ -86,4 +87,4 @@ const TodoList = ({ HOST_API, Store, todolist_id, id_id }) => {
     );
 }
 
-export default TodoList;
+export default ListaPrueba;
