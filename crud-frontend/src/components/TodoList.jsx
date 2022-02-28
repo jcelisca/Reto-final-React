@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 
-const ListaPrueba = ({ HOST_API, Store, todolist_id, id_id }) => {
+const TodoList = ({ HOST_API, Store, todolist_id, id_id }) => {
 
     const { dispatch } = useContext(Store);
 
@@ -86,4 +86,4 @@ const ListaPrueba = ({ HOST_API, Store, todolist_id, id_id }) => {
     );
 }
 
-export default ListaPrueba;
+export default TodoList;

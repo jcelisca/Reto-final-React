@@ -1,6 +1,6 @@
 import React, { useContext, useEffect} from 'react';
-import ListaPrueba from './ListaPrueba';
-import FormPrueba from './FormPrueba';
+import TodoList from './TodoList';
+import TodoForm from './TodoForm';
 
 const List = ({ HOST_API, Store }) => {
 
@@ -42,8 +42,8 @@ const List = ({ HOST_API, Store }) => {
                             <button onClick={() => onEdit(list)}>Editar</button>
                         </div>
                         <div>
-                            <div><FormPrueba HOST_API={HOST_API} item={currentitem} Store={Store} todolist_id={list}/></div>
-                            <div><ListaPrueba HOST_API={HOST_API} Store={Store} todolist_id={list} id_id={list.id} /></div>
+                            <div><TodoList HOST_API={HOST_API} item={currentitem} Store={Store} todolist_id={list}/></div>
+                            <div><TodoForm HOST_API={HOST_API} Store={Store} todolist_id={list} id_id={list.id} /></div>
                         </div>
                     </li>
                 })
